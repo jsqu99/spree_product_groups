@@ -2,9 +2,10 @@ module Spree
   module Core
     module Search
       class ProductGroupBase
-        attr_accessor :properties, :current_user
+        attr_accessor :properties, :current_user, :current_currency
 
         def initialize(params)
+          self.current_currency = Spree::Config[:currency]
           @properties = {}
           prepare(params)
         end
